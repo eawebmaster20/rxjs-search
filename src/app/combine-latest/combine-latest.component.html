@@ -1,24 +1,23 @@
 <div>
-    <span>combining data from the following table, while emitting only one at a time</span>
-    <button (click)="combine()">Start Combining</button>
+    <span class="table-info">combining data from the following tables, while emitting only one at a time</span>
 </div>
 <div class="parent">
     <div class="div1"> 
         <p class="info">table 1</p>
         <p>
-            {{array1.toString()}}
+            {{modelService.array1.toString()}}
         </p>
     </div>
     <div class="div2"> 
         <p class="info">table 2</p>
         <p>
-            {{array2.toString()}}
+            {{modelService.array2.toString()}}
         </p>
     </div>
     <div class="div3">
         <p class="info">table 3</p>
         <p>
-            {{array3.toString()}}
+            {{modelService.array3.toString()}}
         </p> 
     </div>
     <div class="div4">
@@ -28,7 +27,7 @@
         </p>    
     </div>
     <div class="div5">
-        <p-table [value]="combinedList" class="table">
+        <p-table [value]="modelService.combinedList" class="table">
             <ng-template pTemplate="header">
                 <tr>
                     <th>array1 emitted</th>

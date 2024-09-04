@@ -11,6 +11,7 @@ import { Subject, debounceTime, distinctUntilChanged, filter, switchMap, of, del
 import { ApiService } from './services/api-service/api.service';
 import { CombineLatestComponent } from './combine-latest/combine-latest.component';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { ModelService } from './services/model/model.service';
 
 @Component({
   selector: 'app-root',
@@ -49,7 +50,7 @@ export class AppComponent {
   loading = false;
   error: string | null = null;
 
-  constructor(private apiService: ApiService) {
+  constructor(public modelService: ModelService) {
       this.results = this.tasks
       this.setupSearch();
   }

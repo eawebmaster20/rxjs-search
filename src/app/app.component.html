@@ -3,8 +3,8 @@
 
 
 <div class="parent" [ngSwitch]="selectedTest">
-  <div class="div1" *ngSwitchCase="'search'"> 
-    <div>
+  <div class="div1"> 
+    <div *ngSwitchCase="'search'">
       <p-iconField iconPosition="left">
         <p-inputIcon styleClass="pi pi-search" />
         <input type="text" (keyup)="onSearch($event)" pInputText placeholder="Search name..." />
@@ -12,6 +12,13 @@
       <div *ngIf="loading">Loading...</div>
       <div *ngIf="error">{{ error }}</div>
     </div>
+    <button *ngSwitchCase="'combineLatest'"
+    pButton 
+    pRipple 
+    label="click here to start" 
+    (click)="modelService.combine()"
+    class="p-button-success">
+</button>
   </div>
   <div class="div2"> 
     <p-selectButton [options]="tests" [(ngModel)]="selectedTest" optionLabel="label" optionValue="value"></p-selectButton>
