@@ -1,0 +1,50 @@
+<div>
+    <span>combining data from the following table, while emitting only one at a time</span>
+    <button (click)="combine()">Start Combining</button>
+</div>
+<div class="parent">
+    <div class="div1"> 
+        <p class="info">table 1</p>
+        <p>
+            {{array1.toString()}}
+        </p>
+    </div>
+    <div class="div2"> 
+        <p class="info">table 2</p>
+        <p>
+            {{array2.toString()}}
+        </p>
+    </div>
+    <div class="div3">
+        <p class="info">table 3</p>
+        <p>
+            {{array3.toString()}}
+        </p> 
+    </div>
+    <div class="div4">
+        <p class="info">table 4</p>
+        <p>
+            an api call
+        </p>    
+    </div>
+    <div class="div5">
+        <p-table [value]="combinedList" class="table">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>array1 emitted</th>
+                    <th>array2 emitted</th>
+                    <th>array3 emitted</th>
+                    <th>api emitted</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td>{{ item.val1 }}</td>
+                    <td>{{ item.val2 }}</td>
+                    <td>{{ item.val3 }}</td>
+                    <td>{{ item.val4.name }}</td>
+                </tr>
+            </ng-template>
+          </p-table>
+    </div>
+</div>
